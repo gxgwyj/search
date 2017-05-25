@@ -1,5 +1,6 @@
 package com.xinguoren.coolpen.cloud.web.controller;
 
+import com.xinguoren.coolpen.cloud.web.common.utils.PropertiesUtils;
 import com.xinguoren.coolpen.cloud.web.model.Blog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +21,13 @@ public class SearchController {
     @RequestMapping(value = "/")
     public String index() {
         return "index";
+    }
+
+    @RequestMapping(value = "/config")
+    @ResponseBody
+    public Object config(HttpServletRequest  request){
+        String key = request.getParameter("key");
+        return PropertiesUtils.getValueByKey(key);
     }
 
 
