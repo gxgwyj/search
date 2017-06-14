@@ -1,5 +1,7 @@
 package com.xinguoren.coolpen.cloud.web.redis;
 
+import java.util.Map;
+
 /**
  * Created by Administrator on 2017/1/10.
  */
@@ -25,6 +27,14 @@ public interface RedisClient {
      * @return
      */
     Long del(String key);
+
+    /**
+     * 设置hash
+     * @param hkey
+     * @param map
+     * @return
+     */
+    public String hmset(String hkey,Map<String,String> map);
 
 
 

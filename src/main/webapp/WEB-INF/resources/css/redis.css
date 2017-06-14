@@ -1,0 +1,34 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.header{
+    width: auto;
+    height: 50px;
+    margin: 0px;
+    background-color: #222222;
+}
+.mynav{
+    margin: 0 auto;
+    max-width: 900px;
+}
+.mynav img {
+    width: 120px;
+    height: 40px;
+    vertical-align: middle;
+}
+.mycontent{
+    height: 300px;
+    border: solid;
+    border-width: 1px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+.mygridtable {
+    border-collapse: collapse;
+}
+
+.mygridtable, td, th {
+    border: 1px solid black;
+    text-align: center;
+}

@@ -21,9 +21,6 @@ import java.util.Map;
 @Controller
 public class SearchController {
 
-    @Autowired
-    RedisClient  redisClient;
-
     @RequestMapping(value = "/")
     public String index() {
         return "index";
@@ -35,22 +32,6 @@ public class SearchController {
         String key = request.getParameter("key");
         return PropertiesUtils.getValueByKey(key);
     }
-
-    @RequestMapping(value = "/redis")
-    public ModelAndView redis(HttpServletRequest  request){
-        return new ModelAndView("/tools/redis");
-    }
-
-    @RequestMapping(value = "/redis/add")
-    @ResponseBody
-    public Object add(HttpServletRequest  request){
-        String key = request.getParameter("key");
-        String content = request.getParameter("content");
-        return redisClient.set(key,content);
-    }
-
-
-
     @RequestMapping(value = "/man",method = RequestMethod.POST)
     @ResponseBody
     public Object man(@RequestBody Blog blog){
