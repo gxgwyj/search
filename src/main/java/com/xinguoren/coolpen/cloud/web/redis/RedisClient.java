@@ -8,6 +8,7 @@ import java.util.Map;
 public interface RedisClient {
     /**
      * 设置key
+     *
      * @param key
      * @param value
      * @return
@@ -16,6 +17,7 @@ public interface RedisClient {
 
     /**
      * 获取key
+     *
      * @param key
      * @return
      */
@@ -23,6 +25,7 @@ public interface RedisClient {
 
     /**
      * 删除key
+     *
      * @param key
      * @return
      */
@@ -30,12 +33,12 @@ public interface RedisClient {
 
     /**
      * 设置hash
+     *
      * @param hkey
      * @param map
      * @return
      */
-    public String hmset(String hkey,Map<String,String> map);
-
+    public String hmset(String hkey, Map<String, String> map);
 
 
 }

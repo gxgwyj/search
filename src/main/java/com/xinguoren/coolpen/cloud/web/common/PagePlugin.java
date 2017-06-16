@@ -130,6 +130,14 @@ public class PagePlugin implements Interceptor {
         return builder.build();
     }
 
+    public String getcountSql(String originalSql) {
+        StringBuffer strBuf = new StringBuffer();
+        strBuf.append("select count(*) from (");
+        strBuf.append(originalSql);
+        strBuf.append(")");
+        return strBuf.toString();
+    }
+
     public static class BoundSqlSqlSource implements SqlSource {
         private BoundSql boundSql;
 
@@ -141,13 +149,5 @@ public class PagePlugin implements Interceptor {
         public BoundSql getBoundSql(Object arg0) {
             return boundSql;
         }
-    }
-
-    public String getcountSql(String originalSql) {
-        StringBuffer strBuf = new StringBuffer();
-        strBuf.append("select count(*) from (");
-        strBuf.append(originalSql);
-        strBuf.append(")");
-        return strBuf.toString();
     }
 }

@@ -16,17 +16,17 @@ import java.util.Map;
 public class RedisClientSingle implements RedisClient {
     private static Logger logger = Logger.getLogger(RedisClientSingle.class);
     @Autowired
-    JedisPool  jedisPool;
+    JedisPool jedisPool;
 
     @Override
     public String get(String key) {
         try {
-            Jedis  jedis = jedisPool.getResource();
+            Jedis jedis = jedisPool.getResource();
             String str = jedis.get(key);
             jedis.close();
             return str;
         } catch (Exception e) {
-            logger.info("redis get error",e);
+            logger.info("redis get error", e);
             return "";
         }
     }
@@ -35,7 +35,7 @@ public class RedisClientSingle implements RedisClient {
     public String set(String key, String value) {
         try {
             Jedis jedis = jedisPool.getResource();
-            String str =  jedis.set(key, value);
+            String str = jedis.set(key, value);
             jedis.close();
             return str;
         } catch (Exception e) {
@@ -46,19 +46,19 @@ public class RedisClientSingle implements RedisClient {
 
     @Override
     public Long del(String key) {
-            Jedis jedis = jedisPool.getResource();
-            Long result = jedis.del(key);
-            jedis.close();
-            return result;
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.del(key);
+        jedis.close();
+        return result;
     }
 
     @Override
-    public String hmset(String hkey,Map<String,String> map) {
+    public String hmset(String hkey, Map<String, String> map) {
         try {
             Jedis jedis = jedisPool.getResource();
-            String result = jedis.hmset(hkey,map);
+            String result = jedis.hmset(hkey, map);
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.info("redis hmset error", e);
             return "";
         }

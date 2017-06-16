@@ -22,38 +22,41 @@ public class RedisController {
 
     /**
      * redis操作页面
+     *
      * @param request
      * @return
      */
     @RequestMapping(value = "/index")
-    public ModelAndView redis(HttpServletRequest request){
+    public ModelAndView redis(HttpServletRequest request) {
         return new ModelAndView("/tools/redis");
     }
 
     /**
      * set操作
+     *
      * @param request
      * @return
      */
     @RequestMapping(value = "/set")
     @ResponseBody
-    public Object set(HttpServletRequest  request){
+    public Object set(HttpServletRequest request) {
         String key = request.getParameter("key");
         String content = request.getParameter("content");
-        return redisClient.set(key,content);
+        return redisClient.set(key, content);
     }
 
     /**
      * hmet 操作
+     *
      * @param map
      * @return
      */
     @RequestMapping(value = "/hmet")
     @ResponseBody
-    public Object hmet(@RequestBody Map map){
+    public Object hmet(@RequestBody Map map) {
         String hkey = map.get("hkey").toString();
-        Map<String,String> hmap = (Map<String,String>)map.get("map");
-        return redisClient.hmset(hkey,hmap);
+        Map<String, String> hmap = (Map<String, String>) map.get("map");
+        return redisClient.hmset(hkey, hmap);
     }
 
 }

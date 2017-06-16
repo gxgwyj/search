@@ -26,6 +26,10 @@ public class Page<T> implements Serializable {
         return records;
     }
 
+    public void setRecords(List<T> records) {
+        this.records = records;
+    }
+
     public int getPageSize() {
         return pageSize;
     }
@@ -70,20 +74,16 @@ public class Page<T> implements Serializable {
         return pageTotal;
     }
 
+    public void setPageTotal(int pageTotal) {
+        this.pageTotal = pageTotal;
+    }
+
     public String getTurnPageUrl() {
         return turnPageUrl;
     }
 
     public void setTurnPageUrl(String turnPageUrl) {
 //            this.turnPageUrl = turnPageUrl+"?"+Constants.TURN_PAGE;
-    }
-
-    public void setRecords(List<T> records) {
-        this.records = records;
-    }
-
-    public void setPageTotal(int pageTotal) {
-        this.pageTotal = pageTotal;
     }
 
     public boolean isTurnPageFlag() {

@@ -57,7 +57,8 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.xinguoren.coolpen.cloud.web.model.product.ProductCategory">
         update product_category
         <set>
             <if test="code != null">

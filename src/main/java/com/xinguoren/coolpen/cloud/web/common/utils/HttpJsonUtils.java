@@ -2,11 +2,12 @@ package com.xinguoren.coolpen.cloud.web.common.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * http_json 请求工具
@@ -115,7 +116,7 @@ public class HttpJsonUtils {
     public static void main(String[] args) {
         String url = "http://top-api.teshehui.com/service";
         String jsonStr = "{\"action\":\"getProductList\",\"app_key\":\"36ff80808157d185a801582939c68e0004\",\"data\":{\"pageNo\":1,\"pageSize\":100},\"dist_code\":\"wangxinqianbao\",\"format\":\"json\",\"platform\":\"\",\"sign\":\"A035859D4907C053A7F647704ED620A9\",\"sign_method\":\"md5\",\"typeId\":1,\"version\":\"1.0\"}\n";
-        String result = sendPost(url,jsonStr);
+        String result = sendPost(url, jsonStr);
         System.out.println(result);
     }
 

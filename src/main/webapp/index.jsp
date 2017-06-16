@@ -10,22 +10,22 @@
 <body>
 <table>
     <tr>
-        <td>key：<input id = "key" type = "text" ></td>
-        <td><input type = "button" value="获取值" onclick="getVal()"></td>
+        <td>key：<input id="key" type="text"></td>
+        <td><input type="button" value="获取值" onclick="getVal()"></td>
     </tr>
     <tr>
-        <td>result：<input id="result" type = "text" ></td>
+        <td>result：<input id="result" type="text"></td>
     </tr>
 </table>
 </body>
 <script>
-    var  httpUrl = "<%=basePath%>/config";
-    function  getVal(){
-        var  data = {"key":$("#key").val()};
+    var httpUrl = "<%=basePath%>/config";
+    function getVal() {
+        var data = {"key": $("#key").val()};
         $.get(
                 httpUrl,
                 data,
-                function(result){
+                function (result) {
                     $("#result").val(result);
                 }
         );

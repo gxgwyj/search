@@ -2,14 +2,11 @@ package com.xinguoren.coolpen.cloud.web.controller;
 
 import com.xinguoren.coolpen.cloud.web.common.utils.PropertiesUtils;
 import com.xinguoren.coolpen.cloud.web.model.Blog;
-import com.xinguoren.coolpen.cloud.web.redis.RedisClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -28,17 +25,18 @@ public class SearchController {
 
     @RequestMapping(value = "/config")
     @ResponseBody
-    public Object config(HttpServletRequest  request){
+    public Object config(HttpServletRequest request) {
         String key = request.getParameter("key");
         return PropertiesUtils.getValueByKey(key);
     }
-    @RequestMapping(value = "/man",method = RequestMethod.POST)
+
+    @RequestMapping(value = "/man", method = RequestMethod.POST)
     @ResponseBody
-    public Object man(@RequestBody Blog blog){
-        Map<String,String> map = new HashMap<String,String>();
-        map.put("result","success");
-        map.put("code","00123");
-        map.put("message","操作成功");
+    public Object man(@RequestBody Blog blog) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("result", "success");
+        map.put("code", "00123");
+        map.put("message", "操作成功");
         return map;
     }
 
